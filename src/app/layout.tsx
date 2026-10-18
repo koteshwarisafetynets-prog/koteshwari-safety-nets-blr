@@ -1,0 +1,153 @@
+import type { Metadata } from "next";
+import { Geist, Geist_Mono, Inter } from "next/font/google";
+import Script from "next/script";
+import Navbar from "@/components/navigation/Navbar";
+import Footer from "@/components/navigation/Footer";
+import FloatingCTA from "@/components/shared/FloatingCTA";
+import SideFloatingContact from "@/components/shared/SideFloatingContact";
+import CookieConsent from "@/components/ui/CookieConsent";
+import "./globals.css";
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+import { generateLocalBusinessSchema } from "@/utils/schema";
+
+export const metadata: Metadata = {
+  title: {
+    default: "Safety Nets & Invisible Grills in Bangalore | Koteshwari Safety Nets",
+    template: "%s",
+  },
+  description:
+    "Looking for safety nets, invisible grills, or cloth drying hangers in Bangalore? Explore 19 services from Koteshwari Safety Nets and contact us for an enquiry.",
+  keywords: [
+    "Safety Nets in Bangalore",
+    "Invisible Grills in Bangalore",
+    "Balcony Safety Nets Bangalore",
+    "Pigeon Safety Nets Bangalore",
+    "Window Invisible Grills Bangalore",
+    "Ceiling Cloth Hangers Bangalore",
+    "Anti Bird Spikes Bangalore",
+    "Koteshwari Safety Nets",
+    "Safety Nets Whitefield",
+    "Safety Nets Koramangala",
+    "Safety Nets Indiranagar",
+    "Safety Nets HSR Layout",
+    "Safety Nets Electronic City",
+    "Invisible Grills Whitefield",
+    "Invisible Grills Koramangala",
+  ],
+  metadataBase: new URL("https://koteshwarisafetynets.in"),
+  // Search Console verification - marked PENDING until client provides new code
+  // verification: {
+  //   google: "PENDING_KOTESHWARI_GSC_CODE",
+  // },
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/icon.svg",
+    apple: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+  },
+  openGraph: {
+    title: "Safety Nets & Invisible Grills in Bangalore | Koteshwari Safety Nets",
+    description:
+      "Looking for safety nets, invisible grills, or cloth drying hangers in Bangalore? Explore 19 services from Koteshwari Safety Nets and contact us for an enquiry.",
+    url: "https://koteshwarisafetynets.in",
+    siteName: "Koteshwari Safety Nets",
+    images: [
+      {
+        url: "/images/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "Safety Nets & Invisible Grills in Bangalore - Koteshwari Safety Nets",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Safety Nets & Invisible Grills in Bangalore | Koteshwari Safety Nets",
+    description:
+      "Looking for safety nets, invisible grills, or cloth drying hangers in Bangalore? Explore 19 services from Koteshwari Safety Nets and contact us for an enquiry.",
+    images: ["/images/og-image.webp"],
+  },
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  const localBusinessSchema = generateLocalBusinessSchema();
+
+  return (
+    <html lang="en" className="scroll-smooth">
+      <head>
+        {/* Favicon SVG tag */}
+        <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+        <link rel="apple-touch-icon" href="/icon.svg" />
+        {/* Google Search Console verification: PENDING fresh verification code from client */}
+        {/* <meta name="google-site-verification" content="PENDING" /> */}
+      </head>
+      <body
+        className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-white text-slate-900 flex flex-col min-h-screen selection:bg-[#F28C28] selection:text-white`}
+      >
+        {/* LocalBusiness JSON-LD Schema */}
+        <Script
+          id="local-business-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+
+        {/* GA4 / Google Tag: PENDING client's fresh GA4 Measurement ID (e.g., G-XXXXXXXXXX) */}
+        {/*
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-PENDING"
+        />
+        <Script
+          id="ga4-tag"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-PENDING');
+            `,
+          }}
+        />
+        */}
+
+        <Navbar />
+        <main className="flex-grow pt-[96px] sm:pt-[102px] lg:pt-[108px]">{children}</main>
+        <Footer />
+        <FloatingCTA />
+        <SideFloatingContact />
+        <CookieConsent />
+      </body>
+    </html>
+  );
+}

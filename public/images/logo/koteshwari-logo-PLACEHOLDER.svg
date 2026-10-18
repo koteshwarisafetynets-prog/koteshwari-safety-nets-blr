@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 100" width="520" height="100" fill="none">
+  <defs>
+    <linearGradient id="kLogoPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#4B2E83" />
+      <stop offset="100%" stopColor="#2D1754" />
+    </linearGradient>
+    <linearGradient id="kLogoSaffron" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FFA756" />
+      <stop offset="100%" stopColor="#F28C28" />
+    </linearGradient>
+  </defs>
+
+  <!-- Monogram Shield 'K' Badge -->
+  <g transform="translate(10, 10)">
+    <rect width="80" height="80" rx="22" fill="url(#kLogoPurple)" />
+    <!-- Outer Shield Border Accent -->
+    <rect x="3" y="3" width="74" height="74" rx="19" stroke="url(#kLogoSaffron)" stroke-width="2.5" fill="none" opacity="0.9" />
+    <!-- Stylized 'K' Monogram -->
+    <line x1="24" y1="20" x2="24" y2="60" stroke="#FFFFFF" stroke-width="6.5" stroke-linecap="round" />
+    <line x1="27" y1="41" x2="55" y2="22" stroke="#FFFFFF" stroke-width="6.5" stroke-linecap="round" />
+    <line x1="36" y1="35" x2="57" y2="60" stroke="#FFFFFF" stroke-width="6.5" stroke-linecap="round" />
+    <circle cx="55" cy="22" r="3.5" fill="url(#kLogoSaffron)" />
+  </g>
+
+  <!-- Typography: Koteshwari Safety Nets -->
+  <text x="106" y="47" font-family="system-ui, -apple-system, sans-serif" font-size="25" font-weight="800" fill="#4B2E83" letter-spacing="-0.5">
+    KOTESHWARI
+  </text>
+  <text x="290" y="47" font-family="system-ui, -apple-system, sans-serif" font-size="25" font-weight="800" fill="#F28C28" letter-spacing="-0.5">
+    SAFETY
+  </text>
+  <text x="108" y="74" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#4A4A4A" letter-spacing="3.5">
+    NETS BANGALORE
+  </text>
+</svg>

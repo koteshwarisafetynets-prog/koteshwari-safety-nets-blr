@@ -1,0 +1,248 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #FAF7FD;
+  --color-primary-100: #E6DDF5;
+  --color-primary-200: #D0BFEA;
+  --color-primary-300: #B59CDD;
+  --color-primary-400: #8E68C6;
+  --color-primary-500: #6B4BA8;
+  --color-primary-600: #573694;
+  --color-primary-700: #4B2E83;
+  --color-primary-800: #392166;
+  --color-primary-900: #261447;
+  
+  --color-purple-dark: #261447;
+  --color-purple-primary: #4B2E83;
+  --color-purple-light: #6B4BA8;
+  --color-lavender: #E6DDF5;
+  
+  --color-accent-saffron: #F28C28;
+  --color-accent-saffron-light: #FFA756;
+  --color-accent-saffron-dark: #D97214;
+  
+  --color-success-green: #25D366;
+  --color-bg-light: #FAFAFA;
+  --color-border-subtle: #E2E8F0;
+  
+  --color-text-primary: #1A1A1A;
+  --color-text-secondary: #4A4A4A;
+  
+  --font-sans: var(--font-inter), var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --color-royal-purple: #4B2E83;
+  --color-saffron-orange: #F28C28;
+  --color-soft-lavender: #E6DDF5;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAFAFA;
+}
+::-webkit-scrollbar-thumb {
+  background: #4B2E83;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #F28C28;
+}
+
+/* Text Gradient Utility */
+.text-gradient {
+  background: linear-gradient(135deg, #4B2E83 0%, #F28C28 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Royal Purple & Saffron Orange Button Utilities */
+.btn-primary-purple, .btn-primary-accent, .btn-accent {
+  background: linear-gradient(135deg, #4B2E83 0%, #6B4BA8 100%);
+  color: #ffffff;
+  font-weight: 800;
+  border-radius: 9999px;
+  box-shadow: 0 10px 25px rgba(75, 46, 131, 0.35);
+  transition: all 300ms ease;
+}
+.btn-primary-purple:hover, .btn-primary-accent:hover, .btn-accent:hover {
+  background: linear-gradient(135deg, #6B4BA8 0%, #4B2E83 100%);
+  color: #ffffff;
+  box-shadow: 0 15px 30px rgba(75, 46, 131, 0.50);
+  transform: translateY(-2px);
+}
+
+.btn-saffron {
+  background: linear-gradient(135deg, #F28C28 0%, #FFA756 100%);
+  color: #ffffff;
+  font-weight: 800;
+  border-radius: 9999px;
+  box-shadow: 0 10px 25px rgba(242, 140, 40, 0.35);
+  transition: all 300ms ease;
+}
+.btn-saffron:hover {
+  background: linear-gradient(135deg, #FFA756 0%, #F28C28 100%);
+  color: #ffffff;
+  box-shadow: 0 15px 30px rgba(242, 140, 40, 0.50);
+  transform: translateY(-2px);
+}
+
+.btn-secondary-purple {
+  background: transparent;
+  border: 2px solid #F28C28;
+  color: #ffffff;
+  border-radius: 9999px;
+  transition: all 300ms ease;
+}
+.btn-secondary-purple:hover {
+  background: #F28C28;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Card Hover Animation Utility */
+.card-premium {
+  background: #ffffff;
+  border: 1px solid #E2E8F0;
+  border-radius: 20px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.04);
+  transition: all 300ms ease;
+}
+.card-premium:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(75, 46, 131, 0.08);
+  border-color: #F28C28;
+}
+
+/* Custom scroll-margin for anchor links */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+/* Continuous Marquee Animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-marquee-fast {
+  display: flex;
+  width: max-content;
+  animation: marquee 16s linear infinite;
+}
+
+.animate-marquee-reverse {
+  display: flex;
+  width: max-content;
+  animation: marquee-reverse 25s linear infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.92; transform: scale(1.03); }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s infinite ease-in-out;
+}
+
+/* Periodic subtle shake animation for left-side floating buttons */
+@keyframes shake-periodic-1 {
+  0%, 70%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  73% {
+    transform: rotate(-9deg) scale(1.05);
+  }
+  76% {
+    transform: rotate(9deg) scale(1.05);
+  }
+  79% {
+    transform: rotate(-6deg) scale(1.02);
+  }
+  82% {
+    transform: rotate(6deg) scale(1.02);
+  }
+  85% {
+    transform: rotate(-3deg);
+  }
+  88% {
+    transform: rotate(3deg);
+  }
+  91% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes shake-periodic-2 {
+  0%, 76%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  79% {
+    transform: rotate(-9deg) scale(1.05);
+  }
+  82% {
+    transform: rotate(9deg) scale(1.05);
+  }
+  85% {
+    transform: rotate(-6deg) scale(1.02);
+  }
+  88% {
+    transform: rotate(6deg) scale(1.02);
+  }
+  91% {
+    transform: rotate(-3deg);
+  }
+  94% {
+    transform: rotate(3deg);
+  }
+  97% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+.animate-shake-loop-1 {
+  animation: shake-periodic-1 4.5s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+.animate-shake-loop-2 {
+  animation: shake-periodic-2 4.5s ease-in-out infinite;
+  transform-origin: center center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-shake-loop-1,
+  .animate-shake-loop-2 {
+    animation: none !important;
+  }
+}

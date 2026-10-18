@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+  <defs>
+    <linearGradient id="kFavPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#4B2E83" />
+      <stop offset="100%" stopColor="#2D1754" />
+    </linearGradient>
+    <linearGradient id="kFavSaffron" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FFA756" />
+      <stop offset="100%" stopColor="#F28C28" />
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded Squircle Royal Purple Shield -->
+  <rect x="5" y="5" width="90" height="90" rx="26" fill="url(#kFavPurple)" stroke="url(#kFavSaffron)" stroke-width="3.5" />
+
+  <!-- Clean 'K' Monogram for Koteshwari Safety Nets -->
+  <line x1="30" y1="24" x2="30" y2="76" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" />
+  <line x1="33" y1="52" x2="68" y2="28" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" />
+  <line x1="45" y1="44" x2="70" y2="76" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" />
+
+  <!-- Saffron Tension Point Dot -->
+  <circle cx="68" cy="28" r="4.5" fill="url(#kFavSaffron)" />
+</svg>
