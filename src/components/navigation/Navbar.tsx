@@ -181,20 +181,22 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
             {/* LOGO */}
-            <Link
-              href="/"
-              className="flex items-center shrink-0 group focus:outline-none"
-              aria-label="Koteshwari Safety Nets Home"
-            >
-              <Image
-                src="/images/koteshwari-safety-nets-badge.webp"
-                alt="Koteshwari Safety Nets - Safety Nets and Invisible Grills"
-                width={320}
-                height={106}
-                className="h-[52px] sm:h-[58px] md:h-[64px] lg:h-[68px] w-auto max-w-[220px] sm:max-w-[260px] md:max-w-none object-contain transition-transform duration-200 group-hover:scale-[1.02]"
-                priority
-              />
-            </Link>
+            <div className="flex items-center shrink-0">
+              <Link
+                href="/"
+                className="flex items-center bg-white rounded-[11px] border border-[#4B2E83]/15 shadow-[0_2px_10px_rgba(75,46,131,0.08)] hover:shadow-[0_4px_16px_rgba(75,46,131,0.16)] hover:border-[#4B2E83]/30 transition-all duration-300 hover:scale-[1.02] p-1.5 sm:px-2.5 sm:py-1.5 group focus:outline-none focus:ring-2 focus:ring-[#F28C28]/40"
+                aria-label="Koteshwari Safety Nets Home"
+              >
+                <Image
+                  src="/images/logo/koteshwari-safetynets-logo.webp"
+                  alt="Koteshwari Safety Nets - Safety Nets and Invisible Grills Bangalore"
+                  width={2172}
+                  height={724}
+                  priority
+                  className="w-[125px] h-[40px] sm:w-[148px] sm:h-[46px] md:w-[170px] md:h-[52px] object-contain transition-transform duration-200"
+                />
+              </Link>
+            </div>
 
             {/* DESKTOP NAVIGATION LINKS WITH THIN RED UNDERLINE ANIMATION */}
             <nav className="hidden xl:flex items-center gap-6">
@@ -405,13 +407,22 @@ export default function Navbar() {
             <div className="px-4 py-5 space-y-4">
               {/* Brand Header inside Mobile Drawer */}
               <div className="flex items-center justify-between pb-3.5 border-b border-slate-100">
-                <Image
-                  src="/images/koteshwari-safety-nets-badge.webp"
-                  alt="Koteshwari Safety Nets"
-                  width={240}
-                  height={80}
-                  className="h-11 sm:h-12 w-auto object-contain"
-                />
+                <div className="flex items-center shrink-0">
+                  <Link
+                    href="/"
+                    onClick={closeMobileMenu}
+                    className="flex items-center bg-white rounded-[11px] border border-[#4B2E83]/15 shadow-[0_2px_8px_rgba(75,46,131,0.08)] hover:shadow-[0_4px_12px_rgba(75,46,131,0.14)] transition-all duration-300 hover:scale-[1.02] p-1.5 px-2"
+                    aria-label="Koteshwari Safety Nets Home"
+                  >
+                    <Image
+                      src="/images/logo/koteshwari-safetynets-logo.webp"
+                      alt="Koteshwari Safety Nets"
+                      width={2172}
+                      height={724}
+                      className="w-[125px] h-[40px] object-contain"
+                    />
+                  </Link>
+                </div>
                 <span className="text-[11px] font-bold bg-[#F28C28]/10 text-[#4B2E83] border border-[#F28C28]/30 px-2.5 py-1 rounded-full">
                   ★ 4.9 (1,200+ Reviews)
                 </span>

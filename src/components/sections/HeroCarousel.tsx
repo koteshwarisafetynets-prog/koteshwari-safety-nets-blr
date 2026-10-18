@@ -91,7 +91,7 @@ export default function HeroCarousel() {
 
   return (
     <section
-      className="relative min-h-[580px] sm:min-h-[640px] lg:min-h-[700px] flex items-center bg-[#261447] overflow-hidden"
+      className="relative min-h-[580px] sm:min-h-[640px] lg:min-h-[700px] flex items-center bg-slate-950 overflow-hidden"
       onMouseEnter={() => setIsAutoPlay(false)}
       onMouseLeave={() => setIsAutoPlay(true)}
     >
@@ -108,13 +108,13 @@ export default function HeroCarousel() {
             alt={s.altText}
             fill
             priority={idx === 0}
-            className="object-cover object-center filter brightness-[0.38] contrast-[1.08] scale-105 transition-transform duration-[8000ms] ease-out"
+            className="object-cover object-center filter brightness-[0.88] contrast-[1.05] scale-105 transition-transform duration-[8000ms] ease-out"
             sizes="100vw"
-            quality={75}
+            quality={85}
           />
-          {/* Royal Purple Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#261447]/95 via-[#4B2E83]/85 to-[#261447]/60"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-[#261447] via-transparent to-transparent"></div>
+          {/* Clean Scrim Overlay - Minimal Neutral Tint for Maximum Image Visibility */}
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950/80 via-slate-950/40 to-transparent pointer-events-none"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-black/10 pointer-events-none"></div>
         </div>
       ))}
 
@@ -124,35 +124,35 @@ export default function HeroCarousel() {
           {/* Main Copy (Left Column) */}
           <div className="lg:col-span-8 flex flex-col gap-4 text-left">
             {/* Trust Pill */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[#FFA756] text-xs font-bold uppercase tracking-wider self-start shadow-xs">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-950/50 backdrop-blur-md border border-white/20 text-[#FFA756] text-xs font-bold uppercase tracking-wider self-start shadow-xs">
               <HeartHandshake className="w-3.5 h-3.5 text-[#F28C28]" />
               <span>{slide.badge}</span>
             </div>
 
             {/* Headline */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black text-white tracking-tight leading-[1.15]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl font-black text-white tracking-tight leading-[1.15] drop-shadow-md">
               {slide.title}{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFA756] to-[#F28C28]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FFA756] to-[#F28C28] drop-shadow-sm">
                 {slide.highlight}
               </span>
             </h1>
 
             {/* Subtext */}
-            <p className="text-slate-200 text-sm sm:text-base leading-relaxed max-w-2xl font-normal">
+            <p className="text-slate-100 text-sm sm:text-base leading-relaxed max-w-2xl font-normal drop-shadow-sm">
               {slide.subtitle}
             </p>
 
             {/* Value Highlights */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs text-slate-200">
-              <div className="flex items-center gap-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2 text-xs text-slate-100">
+              <div className="flex items-center gap-2 bg-slate-950/40 backdrop-blur-xs px-2.5 py-1.5 rounded-lg border border-white/10">
                 <CheckCircle2 className="w-4 h-4 text-[#F28C28] shrink-0" />
-                <span>Zero Hidden Fees</span>
+                <span className="font-medium text-slate-100">Zero Hidden Fees</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 bg-slate-950/40 backdrop-blur-xs px-2.5 py-1.5 rounded-lg border border-white/10">
                 <CheckCircle2 className="w-4 h-4 text-[#F28C28] shrink-0" />
                 <span className="font-bold text-[#FFA756]">10-Year Warranty</span>
               </div>
-              <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
+              <div className="flex items-center gap-2 col-span-2 sm:col-span-1 bg-slate-950/40 backdrop-blur-xs px-2.5 py-1.5 rounded-lg border border-white/10">
                 <CheckCircle2 className="w-4 h-4 text-[#F28C28] shrink-0" />
                 <span className="font-bold text-white">Genuine After-Sales</span>
               </div>
