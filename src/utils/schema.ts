@@ -52,7 +52,7 @@ export function generateOrganizationSchema() {
     "@type": "Organization",
     "name": "Koteshwari Safety Nets",
     "url": "https://koteshwarisafetynets.in",
-    "logo": "https://koteshwarisafetynets.in/images/logo/koteshwari-safety-nets-logo-light.svg",
+    "logo": "https://koteshwarisafetynets.in/images/logo/koteshwari-safetynets-logo.webp",
     "image": "https://koteshwarisafetynets.in/images/og-image.webp",
     "contactPoint": [
       {
@@ -82,7 +82,7 @@ export function generateLocalBusinessSchema(areaName?: string) {
     "telephone": "+91 99011 02266",
     "email": "koteshwarisafetynets@gmail.com",
     "image": "https://koteshwarisafetynets.in/images/og-image.webp",
-    "logo": "https://koteshwarisafetynets.in/images/logo/koteshwari-safety-nets-logo-light.svg",
+    "logo": "https://koteshwarisafetynets.in/images/logo/koteshwari-safetynets-logo.webp",
     "priceRange": "₹₹",
     "address": {
       "@type": "PostalAddress",
