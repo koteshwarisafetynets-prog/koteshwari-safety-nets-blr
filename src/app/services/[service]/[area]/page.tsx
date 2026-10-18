@@ -45,8 +45,9 @@ export async function generateMetadata({ params }: PageProps) {
     };
   }
 
-  const title = `${serviceDetail.name} in ${areaDetail.name} | Koteshwari Safety Nets`;
-  const description = `Certified ${serviceDetail.name} installation in ${areaDetail.name}, Bangalore. Free doorstep inspection across ${areaDetail.localities.slice(0, 4).join(", ")}. Flat 20% discount & 10-year warranty. Call +91 99011 02266.`;
+  const title = `${serviceDetail.name} in ${areaDetail.name} | Free Inspection & Same-Day Service - Koteshwari Safety Nets`;
+  const landmarkRef = areaDetail.landmarks && areaDetail.landmarks.length > 0 ? ` near ${areaDetail.landmarks[0]}` : "";
+  const description = `Certified ${serviceDetail.name} in ${areaDetail.name}, Bangalore${landmarkRef}. Transparent sq.ft pricing, 10-year replacement warranty & same-day doorstep measurement. Call/WhatsApp +91 99011 02266.`;
 
   return {
     title,

@@ -82,6 +82,12 @@ export interface AreaDetail {
   zone?: 'north' | 'south' | 'east' | 'west' | 'central';
   slug: string;
   name: string;
+  city: string;
+  pincodes: string[];
+  distanceFromCenter: string;
+  avgFloors: string;
+  commonPestHazards: string[];
+  emergencyResponseHours: number;
   tagline: string;
   overview: string;
   apartmentLiving: string;
@@ -3119,10 +3125,43 @@ export const areasData: Record<string, AreaDetail> = Object.entries(localTraits)
       return 'central';
     };
 
+    const getPincodesForSlug = (s: string): string[] => {
+      const pinMap: Record<string, string[]> = {
+        whitefield: ["560066", "560067"],
+        koramangala: ["560034", "560095"],
+        indiranagar: ["560038", "560008"],
+        "hsr-layout": ["560102"],
+        "electronic-city": ["560100"],
+        bellandur: ["560103"],
+        marathahalli: ["560037"],
+        "sarjapur-road": ["560035"],
+        hebbal: ["560024"],
+        yelahanka: ["560064"],
+        "jp-nagar": ["560078"],
+        jayanagar: ["560041", "560011"],
+        "bannerghatta-road": ["560076"],
+        "btm-layout": ["560068"],
+      };
+      return pinMap[s] || ["560001", "560002"];
+    };
+
+    const getDistanceForSlug = (s: string): string => {
+      if (['indiranagar', 'shivajinagar', 'mg-road'].includes(s)) return '3-6 km from Central Bangalore';
+      if (['koramangala', 'jayanagar', 'rajajinagar'].includes(s)) return '7-10 km from Central Bangalore';
+      if (['hsr-layout', 'hebbal', 'btm-layout'].includes(s)) return '11-14 km from Central Bangalore';
+      return '15-22 km from Central Bangalore';
+    };
+
     acc[slug] = {
       slug,
       zone: getZoneForSlug(slug),
       name: data.name,
+      city: "Bangalore",
+      pincodes: getPincodesForSlug(slug),
+      distanceFromCenter: getDistanceForSlug(slug),
+      avgFloors: "12-32 High-Rise Floors",
+      commonPestHazards: ["Blue Rock Pigeons", "Urban Monkeys", "High-Altitude Monsoon Winds", "Open Balcony Railing Gaps"],
+      emergencyResponseHours: 2,
       tagline: data.tagline,
       overview: `${data.name} is a rapidly developing residential and commercial hub in Bangalore, Karnataka. With an increasing number of families moving into multi-story residential buildings and modern gated complexes, ensuring perimeter protection on open balconies and windows has become essential for home safety.`,
       apartmentLiving: `In ${data.name}, residential living primarily encompasses ${data.housingType}. ${data.localizedDetail}`,
