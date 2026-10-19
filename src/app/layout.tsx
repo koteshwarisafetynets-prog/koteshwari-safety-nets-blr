@@ -53,10 +53,9 @@ export const metadata: Metadata = {
     "Invisible Grills Koramangala",
   ],
   metadataBase: new URL("https://koteshwarisafetynets.in"),
-  // Search Console verification - marked PENDING until client provides new code
-  // verification: {
-  //   google: "PENDING_KOTESHWARI_GSC_CODE",
-  // },
+  verification: {
+    google: "CrosZxYJjc8sHLwAisJFh62qwpH6jLTX-MGXrlIhY3M",
+  },
   alternates: {
     canonical: "/",
   },
@@ -108,8 +107,8 @@ export default function RootLayout({
         {/* Favicon SVG tag */}
         <link rel="icon" type="image/svg+xml" href="/icon.svg" />
         <link rel="apple-touch-icon" href="/icon.svg" />
-        {/* Google Search Console verification: PENDING fresh verification code from client */}
-        {/* <meta name="google-site-verification" content="PENDING" /> */}
+        {/* Google Search Console verification */}
+        <meta name="google-site-verification" content="CrosZxYJjc8sHLwAisJFh62qwpH6jLTX-MGXrlIhY3M" />
       </head>
       <body
         className={`${inter.variable} ${geistSans.variable} ${geistMono.variable} antialiased bg-white text-slate-900 flex flex-col min-h-screen selection:bg-[#F28C28] selection:text-white`}
