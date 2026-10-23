@@ -17,10 +17,8 @@ export const CITIES_BANGALORE = [
   "Sarjapur Road",
   "BTM Layout",
   "Hebbal",
-  "RHSR Layout",
+  "Rajajinagar",
 ];
-
-export const CITIES_ANDHRA_PRADESH = CITIES_BANGALORE; // Backwards compatibility alias
 
 export const ALL_19_SERVICES = [
   "Balcony Safety Nets",
@@ -116,13 +114,6 @@ export function generateLocalBusinessSchema(areaName?: string) {
         },
         "position": idx + 1,
       })),
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.96",
-      "reviewCount": "385",
-      "bestRating": "5",
-      "worstRating": "1",
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",

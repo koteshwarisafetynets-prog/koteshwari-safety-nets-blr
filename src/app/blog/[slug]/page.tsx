@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Home, Calendar, Clock, User, ArrowLeft, ArrowRight, HelpCircle, BookOpen } from "lucide-react";
-import { blogData } from "@/utils/blogData";
+import { blogData, BlogArticle } from "@/utils/blogData";
 import { getRelatedServices, getRelatedAreas, getRelatedBlogs } from "@/utils/relatedContent";
 import { generateBreadcrumbSchema, generateArticleSchema, generateFAQPageSchema } from "@/utils/schema";
 import { fetchContent, fetchSiteSettings } from "@/sanity/client";
@@ -16,7 +16,7 @@ interface PageProps {
 
 export async function generateMetadata({ params }: PageProps) {
   const resolvedParams = await params;
-  const post = await fetchContent("blogs", resolvedParams.slug);
+  const post = (await fetchContent("blogs", resolvedParams.slug)) as BlogArticle | null;
 
   if (!post) {
     return {
@@ -57,15 +57,15 @@ export async function generateMetadata({ params }: PageProps) {
 }
 
 export async function generateStaticParams() {
-  const posts = await fetchContent("blogs");
-  return posts.map((post: any) => ({
-    slug: post.slug.current || post.slug,
+  const posts = (await fetchContent("blogs")) as Array<{ slug: string | { current: string } }>;
+  return posts.map((post) => ({
+    slug: typeof post.slug === "string" ? post.slug : post.slug.current,
   }));
 }
 
 export default async function BlogDetailPage({ params }: PageProps) {
   const resolvedParams = await params;
-  const post = await fetchContent("blogs", resolvedParams.slug);
+  const post = (await fetchContent("blogs", resolvedParams.slug)) as BlogArticle | null;
 
   if (!post) {
     notFound();
@@ -185,7 +185,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                   <span>Table of Contents</span>
                 </h2>
                 <ul className="space-y-2 text-xs sm:text-sm text-[#4B2E83] font-bold">
-                  {post.contentBlocks.map((block: any, i: number) => {
+                  {post.contentBlocks.map((block, i: number) => {
                     const anchorId = `section-${i}`;
                     return (
                       <li key={i} className="hover:text-[#F28C28] transition-colors">
@@ -208,7 +208,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
               {/* Dynamic Content blocks */}
               <div className="flex flex-col gap-8">
-                {post.contentBlocks.map((block: any, idx: number) => {
+                {post.contentBlocks.map((block, idx: number) => {
                   const anchorId = `section-${idx}`;
                   return (
                     <div key={idx} id={anchorId} className="flex flex-col gap-3 scroll-mt-24">
@@ -234,7 +234,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
                 <span>Frequently Asked Questions</span>
               </h3>
               <div className="space-y-5">
-                {post.faqs.map((faq: any, idx: number) => (
+                {post.faqs.map((faq, idx: number) => (
                   <div key={idx} className="pb-4 border-b border-slate-50 last:border-0 last:pb-0">
                     <h4 className="text-sm font-bold text-slate-800 mb-1.5">{faq.question}</h4>
                     <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">{faq.answer}</p>

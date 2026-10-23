@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { trackPhoneClick, trackWhatsAppClick } from "@/utils/analytics";
 
 const safetyNetsServices = [
   { name: "Balcony Safety Nets", href: "/services/balcony-safety-nets" },
@@ -127,6 +128,7 @@ export default function Navbar() {
           <div className="flex items-center gap-2 shrink-0">
             <a
               href="tel:+919901102266"
+              onClick={() => trackPhoneClick("Navbar Top Bar")}
               className="flex items-center gap-1.5 hover:text-[#F28C28] transition-colors"
               aria-label="Call Koteshwari Safety Nets"
             >
@@ -358,6 +360,7 @@ export default function Navbar() {
               {/* Call Now Button */}
               <a
                 href="tel:+919901102266"
+                onClick={() => trackPhoneClick("Navbar Desktop Header")}
                 className="bg-[#F28C28] hover:bg-[#FFA756] text-slate-950 font-black flex items-center gap-2 px-5 py-2.5 rounded-full text-xs shadow-md transition-all"
                 aria-label="Call Now"
               >
@@ -370,6 +373,7 @@ export default function Navbar() {
                 href="https://wa.me/919901102266?text=Hi%20Koteshwari%20Safety%20Nets%2C%20I%20would%20like%20to%20request%20a%20free%20quote%20for%20safety%20nets%2Finvisible%20grills."
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("Navbar Desktop Header")}
                 className="flex items-center gap-2 bg-[#25D366] hover:bg-emerald-400 text-slate-950 font-black px-4 py-2.5 rounded-full shadow-md transition-all text-xs"
                 aria-label="WhatsApp Us"
               >
@@ -484,6 +488,7 @@ export default function Navbar() {
               <div className="pt-4 border-t border-[#E5E7EB] flex flex-col gap-2.5">
                 <a
                   href="tel:+919901102266"
+                  onClick={() => trackPhoneClick("Navbar Mobile Menu")}
                   className="bg-[#F28C28] hover:bg-[#FFA756] text-white py-3 text-center rounded-full text-sm font-extrabold flex items-center justify-center gap-2 shadow-md transition-all"
                 >
                   <Phone className="w-4 h-4" />
@@ -493,6 +498,7 @@ export default function Navbar() {
                   href="https://wa.me/919901102266?text=Hi%20Koteshwari%20Safety%20Nets%2C%20I%20would%20like%20to%20request%20a%20free%20quote."
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() => trackWhatsAppClick("Navbar Mobile Menu")}
                   className="bg-[#25D366] text-white py-3 text-center rounded-full text-sm font-extrabold flex items-center justify-center gap-2"
                 >
                   <span>Chat on WhatsApp</span>

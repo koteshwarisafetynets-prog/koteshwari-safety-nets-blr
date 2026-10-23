@@ -13,6 +13,15 @@ function pushToDataLayer(obj: DataLayerObject) {
     win.dataLayer = win.dataLayer || [];
     win.dataLayer.push(obj);
 
+    // Direct Google Ads / GA4 gtag.js custom event support
+    if (typeof win.gtag === "function") {
+      win.gtag("event", obj.event, {
+        event_category: obj.category,
+        event_label: obj.label,
+        ...obj,
+      });
+    }
+
     // Microsoft Clarity custom event support
     if (typeof win.clarity === "function") {
       win.clarity("event", obj.event, {
@@ -30,6 +39,16 @@ export function trackPhoneClick(location: string) {
     action: "Call Action Initiated",
     label: location,
   });
+  if (typeof window !== "undefined") {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const win = window as any;
+    if (typeof win.gtag === "function") {
+      win.gtag("event", "contact", {
+        method: "phone",
+        event_label: location,
+      });
+    }
+  }
 }
 
 export function trackWhatsAppClick(location: string) {
@@ -39,6 +58,16 @@ export function trackWhatsAppClick(location: string) {
     action: "WhatsApp Chat Initiated",
     label: location,
   });
+  if (typeof window !== "undefined") {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const win = window as any;
+    if (typeof win.gtag === "function") {
+      win.gtag("event", "contact", {
+        method: "whatsapp",
+        event_label: location,
+      });
+    }
+  }
 }
 
 export function trackFormSubmit(service: string, area: string) {
@@ -48,6 +77,23 @@ export function trackFormSubmit(service: string, area: string) {
     action: "Lead Form Submission",
     label: `Service: ${service} | Area: ${area}`,
   });
+  if (typeof window !== "undefined") {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const win = window as any;
+    if (typeof win.gtag === "function") {
+      win.gtag("event", "generate_lead", {
+        currency: "INR",
+        value: 500,
+        service,
+        area,
+      });
+      win.gtag("event", "conversion", {
+        send_to: process.env.NEXT_PUBLIC_GOOGLE_ADS_CONVERSION_ID,
+        value: 500,
+        currency: "INR",
+      });
+    }
+  }
 }
 
 export function trackQuoteRequest(service: string, source: string) {

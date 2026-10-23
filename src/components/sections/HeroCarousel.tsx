@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Shield, ChevronLeft, ChevronRight, Phone, MessageSquare, ArrowRight, CheckCircle2, HeartHandshake } from "lucide-react";
+import { trackPhoneClick, trackWhatsAppClick } from "@/utils/analytics";
 
 interface Slide {
   id: number;
@@ -170,6 +171,7 @@ export default function HeroCarousel() {
 
               <a
                 href="tel:+919901102266"
+                onClick={() => trackPhoneClick("Hero Slide Call")}
                 className="bg-white/15 hover:bg-white/25 text-white font-bold px-6 py-3.5 rounded-full text-sm sm:text-base backdrop-blur-md border border-white/25 transition-all duration-300 flex items-center gap-2 shadow-sm hover:scale-[1.02] active:scale-[0.98]"
               >
                 <Phone className="w-4 h-4 text-[#F28C28]" />
@@ -180,6 +182,7 @@ export default function HeroCarousel() {
                 href="https://wa.me/919901102266?text=Hi%20Koteshwari%20Safety%20Nets%2C%20I%20would%20like%20to%20request%20an%20honest%20free%20quote%20for%20safety%20nets."
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackWhatsAppClick("Hero Slide WhatsApp")}
                 className="bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold p-3.5 rounded-full text-sm transition-all duration-300 shadow-md hover:scale-105 active:scale-95 flex items-center justify-center"
                 aria-label="WhatsApp Inquiry"
               >

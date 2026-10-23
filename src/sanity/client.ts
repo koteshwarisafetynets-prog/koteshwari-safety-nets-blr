@@ -20,7 +20,7 @@ export const sanityConfig = {
  * Automatically toggles between local static dictionaries and live Sanity CMS API
  * depending on whether the NEXT_PUBLIC_SANITY_PROJECT_ID key is populated.
  */
-export async function fetchContent(type: "services" | "areas" | "projects" | "blogs", slug?: string): Promise<any> {
+export async function fetchContent(type: "services" | "areas" | "projects" | "blogs", slug?: string): Promise<unknown> {
   const isMock = !PROJECT_ID || PROJECT_ID === "mock-project-id";
 
   if (isMock) {

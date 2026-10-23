@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Phone, ShieldCheck, CheckCircle2, ArrowRight, Loader2 } from "lucide-react";
+import { ShieldCheck, CheckCircle2, ArrowRight, Loader2 } from "lucide-react";
 import { trackFormSubmit } from "@/utils/analytics";
 
 const leadSchema = z.object({
@@ -20,14 +20,13 @@ interface QuickLeadFormProps {
   serviceName: string;
   serviceSlug: string;
   cityName: string;
-  citySlug: string;
+  citySlug?: string;
 }
 
 export default function QuickLeadForm({
   serviceName,
   serviceSlug,
   cityName,
-  citySlug,
 }: QuickLeadFormProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
@@ -183,7 +182,7 @@ export default function QuickLeadForm({
           <button
             type="submit"
             disabled={status === "loading"}
-            className="w-full py-3 px-4 bg-gradient-to-r from-[#F28C28] to-[#01579B] hover:from-[#039BE5] hover:to-[#F28C28] text-white font-bold text-sm rounded-xl shadow-lg shadow-sky-900/20 flex items-center justify-center gap-2 transition-all transform active:scale-[0.98] cursor-pointer disabled:opacity-75"
+            className="w-full py-3 px-4 bg-gradient-to-r from-[#F28C28] to-[#D97214] hover:from-[#FFA756] hover:to-[#F28C28] text-slate-950 font-black text-sm rounded-xl shadow-lg shadow-orange-950/20 flex items-center justify-center gap-2 transition-all transform active:scale-[0.98] cursor-pointer disabled:opacity-75"
           >
             {status === "loading" ? (
               <>

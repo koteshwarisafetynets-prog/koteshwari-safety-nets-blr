@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { Wrench, RefreshCw } from "lucide-react";
 
 export default function ErrorBoundary({
@@ -38,12 +39,12 @@ export default function ErrorBoundary({
             <span>Try Again</span>
           </button>
           
-          <a
+          <Link
             href="/"
             className="text-xs text-slate-500 hover:text-[#F28C28] font-semibold transition-colors"
           >
             Go Back Home
-          </a>
+          </Link>
         </div>
       </div>
     </div>

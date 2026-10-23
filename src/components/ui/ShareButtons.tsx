@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Send, Share2, Copy, Check } from "lucide-react";
 
 interface ShareButtonsProps {
@@ -10,13 +10,9 @@ interface ShareButtonsProps {
 
 export default function ShareButtons({ title, slug }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false);
-  const [shareUrl, setShareUrl] = useState("");
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setShareUrl(`${window.location.origin}/blog/${slug}`);
-    }
-  }, [slug]);
+  const shareUrl = typeof window !== "undefined" && window.location?.origin
+    ? `${window.location.origin}/blog/${slug}`
+    : `https://koteshwarisafetynets.in/blog/${slug}`;
 
   const handleCopyLink = async () => {
     try {

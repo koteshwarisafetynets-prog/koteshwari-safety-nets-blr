@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone } from "lucide-react";
 import { useEffect, useState } from "react";
+import { trackPhoneClick, trackWhatsAppClick } from "@/utils/analytics";
 
 export default function SideFloatingContact() {
   const [isVisible, setIsVisible] = useState(false);
@@ -57,6 +58,7 @@ export default function SideFloatingContact() {
           {/* CALL BUTTON (Golden-orange branding with periodic gentle shake loop) */}
           <motion.a
             href="tel:+919901102266"
+            onClick={() => trackPhoneClick("Side Floating CTA")}
             whileHover={{ scale: 1.12 }}
             whileTap={{ scale: 0.92 }}
             aria-label="Call Koteshwari Safety Nets at +91 99011 02266"
@@ -75,6 +77,7 @@ export default function SideFloatingContact() {
             href="https://wa.me/919901102266?text=Hi%20Koteshwari%20Safety%20Nets%2C%20I%20would%20like%20to%20request%20a%20free%20quote%20for%20safety%20nets%2Finvisible%20grills."
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackWhatsAppClick("Side Floating CTA")}
             whileHover={{ scale: 1.12 }}
             whileTap={{ scale: 0.92 }}
             aria-label="Chat on WhatsApp with Koteshwari Safety Nets"

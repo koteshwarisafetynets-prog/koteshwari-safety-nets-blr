@@ -4,6 +4,7 @@ import { Home } from "lucide-react";
 import BlogFilterClient from "./BlogFilterClient";
 import { generateBreadcrumbSchema } from "@/utils/schema";
 import { fetchContent } from "@/sanity/client";
+import { BlogArticle } from "@/utils/blogData";
 
 export const metadata: Metadata = {
   title: "Safety & Childproofing Blog | Koteshwari Safety Nets - Safety Nets & Invisible Grills Bangalore, Karnataka",
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
 
 export default async function BlogPage() {
   // Fetch all articles dynamically (supports Sanity live API and fallback registry)
-  const posts = await fetchContent("blogs");
+  const posts = ((await fetchContent("blogs")) as BlogArticle[]) || [];
 
   const breadcrumbLinks = [
     { name: "Home", item: "/" },
